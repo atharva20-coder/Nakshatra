@@ -1,5 +1,4 @@
 'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { Playfair_Display } from 'next/font/google';
@@ -16,10 +15,38 @@ export default function LandingPage() {
       <nav className="flex justify-between items-center py-4 px-8 md:px-16">
         <div className="text-2xl font-bold">Nakshatra</div>
         <div className="hidden md:flex space-x-8 items-center text-sm">
-          <Link href="/about" className="hover:text-primary font-semibold">Read About Nakshtra</Link>
-          <Link href="/agencies" className="hover:text-primary font-semibold">For Agencies</Link>
-          <Link href="/auditors" className="hover:text-primary font-semibold">For Auditors</Link>
-          <Link href="/login" className="text-rose-900 hover:text-rose-950 font-semibold">Login/Sign-up</Link>
+          <Link href="/about" className="hover:text-primary font-semibold">
+            Read About Nakshtra
+          </Link>
+          <Link href="/agencies" className="hover:text-primary font-semibold">
+            For Agencies
+          </Link>
+          <Link href="/auditors" className="hover:text-primary font-semibold">
+            For Auditors
+          </Link>
+          <div className="flex space-x-4">
+            <Link 
+              href="/sign-in" 
+              className="text-rose-900 hover:text-rose-950 font-semibold border border-rose-900 px-4 py-2 rounded-md hover:bg-rose-50 transition-colors"
+            >
+              Login
+            </Link>
+            <Link 
+              href="/sign-up" 
+              className="bg-rose-900 text-white hover:bg-rose-950 font-semibold px-4 py-2 rounded-md transition-colors"
+            >
+              Sign Up
+            </Link>
+          </div>
+        </div>
+        
+        {/* Mobile menu button */}
+        <div className="md:hidden">
+          <button className="text-rose-900">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
       </nav>
 
@@ -32,12 +59,53 @@ export default function LandingPage() {
           <p className="text-lg text-gray-600 mb-8">
             Run an organization where members get rewarded for their contributions with fractional ownership.
           </p>
-          <Link 
-            href="/login" 
-            className="inline-block bg-rose-900 text-white px-8 py-3 rounded-md hover:bg-rose-950 transition-colors font-bold"
-          >
-            Login/Sign-up
-          </Link>
+          
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <Link
+              href="/sign-up"
+              className="inline-block bg-rose-900 text-white px-8 py-3 rounded-md hover:bg-rose-950 transition-colors font-bold text-center"
+            >
+              Get Started - Sign Up
+            </Link>
+            <Link
+              href="/sign-in"
+              className="inline-block border border-rose-900 text-rose-900 px-8 py-3 rounded-md hover:bg-rose-50 transition-colors font-bold text-center"
+            >
+              Already have an account? Login
+            </Link>
+          </div>
+
+          {/* User Type Links */}
+          <div className="text-sm text-gray-600">
+            <p className="mb-2">Join as:</p>
+            <div className="flex flex-wrap gap-4">
+              <Link 
+                href="/sign-up" 
+                className="text-rose-700 hover:text-rose-900 underline"
+              >
+                Agency
+              </Link>
+              <Link 
+                href="/sign-up" 
+                className="text-rose-700 hover:text-rose-900 underline"
+              >
+                Auditor
+              </Link>
+              <Link 
+                href="/sign-up" 
+                className="text-rose-700 hover:text-rose-900 underline"
+              >
+                Collection Manager
+              </Link>
+              <Link 
+                href="/sign-up" 
+                className="text-rose-700 hover:text-rose-900 underline"
+              >
+                Axis Employee
+              </Link>
+            </div>
+          </div>
         </div>
 
         <div className="flex-1 relative w-full max-w-2xl flex justify-center items-center">
@@ -60,6 +128,24 @@ export default function LandingPage() {
           />
         </div>
       </main>
+
+      {/* Mobile CTA Section */}
+      <div className="md:hidden px-8 pb-8">
+        <div className="flex flex-col gap-4">
+          <Link
+            href="/sign-up"
+            className="w-full bg-rose-900 text-white px-6 py-3 rounded-md hover:bg-rose-950 transition-colors font-bold text-center"
+          >
+            Get Started - Sign Up
+          </Link>
+          <Link
+            href="/sign-in"
+            className="w-full border border-rose-900 text-rose-900 px-6 py-3 rounded-md hover:bg-rose-50 transition-colors font-bold text-center"
+          >
+            Login
+          </Link>
+        </div>
+      </div>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
